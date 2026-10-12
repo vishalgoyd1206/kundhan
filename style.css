@@ -1,0 +1,415 @@
+/* ==========================================================================
+   Khundhan.com - Clean, Warm Ivory & Minimalist Luxury Design
+   ========================================================================== */
+
+:root {
+  --bg-body: #faf8f5;
+  --bg-surface: #ffffff;
+  --bg-card: #ffffff;
+  --border-soft: rgba(0, 0, 0, 0.07);
+  --border-gold: #e2c99b;
+
+  --text-main: #1c1b18;
+  --text-muted: #6e6b63;
+  --text-light: #9e9a8f;
+
+  --accent-gold: #ab8335;
+  --accent-gold-hover: #8f6a24;
+
+  --font-serif: 'Cormorant Garamond', Georgia, serif;
+  --font-sans: 'Montserrat', -apple-system, BlinkMacSystemFont, sans-serif;
+
+  --transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--bg-body);
+  color: var(--text-main);
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* 1. Subtle Marquee Top Ticker */
+.ticker-wrap {
+  width: 100%;
+  overflow: hidden;
+  background-color: #171513;
+  color: #f7eedb;
+  padding: 8px 0;
+  border-bottom: 1px solid var(--border-gold);
+}
+
+.ticker-move {
+  display: flex;
+  width: max-content;
+  animation: ticker 32s linear infinite;
+  white-space: nowrap;
+}
+
+.ticker-move:hover {
+  animation-play-state: paused;
+}
+
+.ticker-item {
+  display: inline-block;
+  padding: 0 2rem;
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 2.5px;
+  text-transform: uppercase;
+}
+
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* 2. Main Wrapper */
+.main-wrapper {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1.5rem 2.5rem;
+}
+
+/* 3. Refined Minimal Header */
+.header {
+  text-align: center;
+  margin-bottom: 3.5rem;
+}
+
+.logo {
+  font-family: var(--font-serif);
+  font-size: 3rem;
+  letter-spacing: 7px;
+  font-weight: 500;
+  color: var(--text-main);
+  text-transform: uppercase;
+}
+
+.tagline {
+  font-size: 0.72rem;
+  letter-spacing: 4px;
+  color: var(--text-light);
+  margin-top: 6px;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+/* 4. Hero Stage with Integrated Slider */
+.hero-stage {
+  display: grid;
+  grid-template-columns: 1.25fr 0.9fr;
+  gap: 3.8rem;
+  align-items: center;
+  margin-bottom: 4.5rem;
+}
+
+/* Integrated Hero Slider Box */
+.hero-slider-box {
+  position: relative;
+  border-radius: 14px;
+  overflow: hidden;
+  height: 520px;
+  box-shadow: 0 20px 45px -15px rgba(28, 27, 24, 0.15);
+  background-color: #eee9e1;
+}
+
+.slider-track {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.7s ease, transform 0.7s ease;
+  transform: scale(1.03);
+}
+
+.slide.active {
+  opacity: 1;
+  visibility: visible;
+  transform: scale(1);
+}
+
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Slide Caption Overlay */
+.slide-caption {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 1.6rem 2rem;
+  background: linear-gradient(180deg, transparent 0%, rgba(18, 16, 14, 0.7) 40%, rgba(18, 16, 14, 0.9) 100%);
+  color: #fff;
+}
+
+.caption-tag {
+  font-size: 0.65rem;
+  letter-spacing: 2px;
+  color: #f7eedb;
+  text-transform: uppercase;
+  font-weight: 600;
+  display: block;
+  margin-bottom: 2px;
+}
+
+.slide-caption h3 {
+  font-family: var(--font-serif);
+  font-size: 1.35rem;
+  font-weight: 400;
+  letter-spacing: 0.5px;
+}
+
+/* Launching Soon Pill Badge */
+.hero-status-pill {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  z-index: 10;
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(8px);
+  padding: 6px 14px;
+  border-radius: 30px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  color: #171513;
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.status-dot {
+  width: 7px;
+  height: 7px;
+  background-color: var(--accent-gold);
+  border-radius: 50%;
+  display: inline-block;
+  animation: pulseDot 2s infinite;
+}
+
+@keyframes pulseDot {
+  0% { transform: scale(0.9); opacity: 0.6; }
+  50% { transform: scale(1.2); opacity: 1; }
+  100% { transform: scale(0.9); opacity: 0.6; }
+}
+
+/* Slider Controls (Prev/Next Arrows) */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  color: #171513;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition);
+  backdrop-filter: blur(4px);
+  opacity: 0.7;
+}
+
+.hero-slider-box:hover .slider-btn {
+  opacity: 1;
+}
+
+.slider-btn:hover {
+  background: #ffffff;
+  transform: translateY(-50%) scale(1.08);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.15);
+}
+
+.prev-btn { left: 16px; }
+.next-btn { right: 16px; }
+
+/* Slider Dots */
+.slider-dots {
+  position: absolute;
+  bottom: 18px;
+  right: 20px;
+  z-index: 10;
+  display: flex;
+  gap: 8px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+.dot.active {
+  background: #ffffff;
+  transform: scale(1.25);
+}
+
+/* Hero Copy Styling */
+.hero-copy {
+  padding-left: 0.5rem;
+}
+
+.hero-heading {
+  font-family: var(--font-serif);
+  font-size: 3.4rem;
+  line-height: 1.15;
+  font-weight: 400;
+  color: var(--text-main);
+  margin-bottom: 1.4rem;
+}
+
+.hero-heading em {
+  font-style: italic;
+  color: var(--accent-gold);
+}
+
+.hero-subtext {
+  font-size: 1.02rem;
+  line-height: 1.8;
+  color: var(--text-muted);
+  font-weight: 300;
+  margin-bottom: 2rem;
+}
+
+.hero-subtext strong {
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+/* Highlights List Items that sync with the slider */
+.collection-pills-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+
+.collection-pill-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: #ffffff;
+  border: 1px solid var(--border-soft);
+  transition: var(--transition);
+  cursor: pointer;
+}
+
+.collection-pill-item:hover {
+  border-color: var(--border-gold);
+  transform: translateX(5px);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.04);
+}
+
+.dot-marker {
+  color: var(--accent-gold);
+  font-size: 0.9rem;
+  margin-top: 2px;
+}
+
+.collection-pill-item strong {
+  display: block;
+  font-size: 0.92rem;
+  color: var(--text-main);
+  font-weight: 500;
+}
+
+.collection-pill-item p {
+  font-size: 0.8rem;
+  color: var(--text-muted);
+  margin-top: 2px;
+  font-weight: 300;
+}
+
+/* Refined Minimal Footer */
+.footer {
+  border-top: 1px solid var(--border-soft);
+  padding-top: 2.5rem;
+  text-align: center;
+}
+
+.brand-domain {
+  font-family: var(--font-serif);
+  font-size: 1.4rem;
+  letter-spacing: 4px;
+  font-weight: 500;
+  color: var(--text-main);
+  margin-bottom: 0.4rem;
+}
+
+.reserved-text {
+  font-size: 0.75rem;
+  letter-spacing: 1px;
+  color: var(--text-light);
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+  .hero-stage {
+    grid-template-columns: 1fr;
+    gap: 2.5rem;
+  }
+
+  .hero-slider-box {
+    height: 400px;
+  }
+
+  .hero-heading {
+    font-size: 2.7rem;
+    text-align: center;
+  }
+
+  .hero-subtext {
+    text-align: center;
+  }
+}
+
+@media (max-width: 600px) {
+  .logo {
+    font-size: 2.2rem;
+    letter-spacing: 5px;
+  }
+
+  .hero-slider-box {
+    height: 320px;
+  }
+
+  .hero-heading {
+    font-size: 2.2rem;
+  }
+
+  .slide-caption h3 {
+    font-size: 1.1rem;
+  }
+}
